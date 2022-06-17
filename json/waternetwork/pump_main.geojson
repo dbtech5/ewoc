@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"name": "pump",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "no": 1, "Name": "โรงสูบบางพระ (ใหม่)", "x": 100.9756157, "y": 13.18659541, "description": null }, "geometry": { "type": "Point", "coordinates": [ 100.9756157, 13.18659541 ] } },
+{ "type": "Feature", "properties": { "no": 2, "Name": "โรงสูบสระเอกชน", "x": 101.0851141, "y": 13.39233819, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.0851141, 13.39233819 ] } },
+{ "type": "Feature", "properties": { "no": 3, "Name": "โรงสูบสำนักบก", "x": 101.0588266, "y": 13.37565198, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.0588266, 13.37565198 ] } },
+{ "type": "Feature", "properties": { "no": 4, "Name": "โรงสูบบางปะกง", "x": 101.0048475, "y": 13.54725461, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.0048475, 13.54725461 ] } },
+{ "type": "Feature", "properties": { "no": 5, "Name": "โรงสูบอ่างฯหนองค้อ", "x": 101.0386498, "y": 13.12558175, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.0386498, 13.12558175 ] } },
+{ "type": "Feature", "properties": { "no": 6, "Name": "โรงสูบหนองปลาไหล 1", "x": 101.2584624, "y": 12.93165305, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2584624, 12.93165305 ] } },
+{ "type": "Feature", "properties": { "no": 7, "Name": "โรงสูบหนองปลาไหล 2", "x": 101.2595362, "y": 12.93134334, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2595362, 12.93134334 ] } },
+{ "type": "Feature", "properties": { "no": 8, "Name": "โรงสูบหนองปลาไหล 3", "x": 101.2574803, "y": 12.93199701, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2574803, 12.93199701 ] } },
+{ "type": "Feature", "properties": { "no": 9, "Name": "โรงสูบดอกกราย", "x": 101.2171812, "y": 12.88845446, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2171812, 12.88845446 ] } },
+{ "type": "Feature", "properties": { "no": 10, "Name": "โรงสูบคลองเขื่อน", "x": 101.1712762, "y": 13.76629699, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.1712762, 13.76629699 ] } },
+{ "type": "Feature", "properties": { "no": 11, "Name": "โรงสูบสระสำรอง", "x": 101.1648081, "y": 13.76945764, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.1648081, 13.76945764 ] } },
+{ "type": "Feature", "properties": { "no": 12, "Name": "โรงสูบคลองนครเนื่องเขต (สวนสน)", "x": 101.032113, "y": 13.73420519, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.032113, 13.73420519 ] } },
+{ "type": "Feature", "properties": { "no": 13, "Name": "สถานีสูบน้ำคลองพระองค์เจ้าไชยานุชิต", "x": 100.865766, "y": 13.65617435, "description": null }, "geometry": { "type": "Point", "coordinates": [ 100.865766, 13.65617435 ] } },
+{ "type": "Feature", "properties": { "no": 14, "Name": "โรงสูบประแสร์", "x": 101.5651571, "y": 12.97510467, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.5651571, 12.97510467 ] } },
+{ "type": "Feature", "properties": { "no": 15, "Name": "โรงสูบสระทับมา", "x": 101.2169135, "y": 12.73736207, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2169135, 12.73736207 ] } },
+{ "type": "Feature", "properties": { "no": 16, "Name": "โรงสูบคลองทับมา", "x": 101.2274238, "y": 12.73706596, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2274238, 12.73706596 ] } },
+{ "type": "Feature", "properties": { "no": 17, "Name": "โรงสูบแม่น้ำระยอง", "x": 101.2970251, "y": 12.68985257, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2970251, 12.68985257 ] } },
+{ "type": "Feature", "properties": { "no": 18, "Name": "โรงสูบเพิ่มแรงดันหนองปลาไหล 1", "x": 101.2561119, "y": 12.91722709, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.2561119, 12.91722709 ] } },
+{ "type": "Feature", "properties": { "no": 19, "Name": "โรงสูบมาบตาพุด", "x": 101.1052915, "y": 12.74863058, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.1052915, 12.74863058 ] } },
+{ "type": "Feature", "properties": { "no": 20, "Name": "โรงสูบพานทอง", "x": 101.0447694, "y": 13.48093907, "description": null }, "geometry": { "type": "Point", "coordinates": [ 101.0447694, 13.48093907 ] } }
+]
+}

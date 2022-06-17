@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="csrf-token" content="GZ3wTJlC8BI43oAr5X7WBlHSvYCZTpxiXpuyWpZa">
+	<title>EWOC</title>
+	<link rel="stylesheet" href="./ajax/libs/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css">
+	<link rel="stylesheet" type="text/css" href="./ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.css">
+	<link rel="stylesheet" type="text/css" href="./ajax/libs/select2/4.0.5/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/layout.css">
+	<link rel="stylesheet" type="text/css" href="./css/map.css">
+	<link rel="stylesheet" type="text/css" href="./css/switch.css">
+	<link rel="stylesheet" type="text/css" href="./css/mapfilter.css">
+	<link rel="stylesheet" type="text/css" href="./css/ol-layerswitcher.css">
+	<link rel="stylesheet" type="text/css" href="./css/modal.css">
+	<link rel="stylesheet" type="text/css" href="./css/lightbox.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="dialog_table">
+		
+	</div>
+	<div id="dialog_temp">
+		<i class="fa fa-times dialog_temp_fa"></i>
+		<p id="text-dialog">ss</p>
+	</div>
+	<div id="container" class="w-100 h-100">
+		<!-- Header -->
+		<div class="element-nav">
+			<div id="toggleHead">
+				<div id="header-element">
+					<div>
+						<img src="./img/logo.png" height="56" style="line-height: 50px;"/>
+					</div>
+					<div style="margin-left: 20px;width:85%;">
+						<text
+							class="header-title" style="color:#28378B;font-size: 16px;">โครงการเชื่อมโยงฐานข้อมูลและพัฒนาระบบช่วยตัดสินใจในการบริหารจัดการน้ำ
+							พื้นที่ชายฝั่งทะเลตะวันออก (จังหวัดระยอง ชลบุรี ฉะเชิงเทรา)</text>
+						<a style="display: block;color:#28378B;font-family: THSarabunNew;font-weight: bold;font-size:16px;">EASTWATER OPERATION CENTER: EWOC</a>
+					</div>
+					<div style="text-align: right;width:15%;
+					">
+						<a class="href-east" href="https://www.eastwater.com/">
+							eastwater.com
+						</a>
+					</div>
+				</div>
+				<div class="bottom-nav-h" style="display:flex;">
+					<div style="width: 90%;" class="list-menu">
+						<div>
+							<a onclick="open_tab(1)">แผนที่</a>
+						</div>
+						<div>
+							<a onclick="open_tab(2)">ข้อมูล</a>
+						</div>
+						<div>
+							<a onclick="open_tab(3)">แผนจัดสรรน้ำ</a>
+						</div>
+						<div>
+							<a onclick="open_tab(4)">ระบบ</a>
+						</div>
+					</div>
+					<div style="width: 10%;">
+						<div class="accout" style="padding: 0pxs;">
+							<div>
+								<img src="./img/Account-User-PNG-Transparent.png" width="20px" height="20px">
+								<p style="display: inline-block;">ผู้ใช้งาน</p>
+								
+							</div>
+							<div>
+								<i class="fa fa-chevron-up" onclick="toggleHeader()"></i>
+								<i class="fa fa-chevron-down" onclick="toggleHeader()" style="display: none;"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="tab_1">
+				<div class="container-tab">
+					<div class="page-manager-data">
+						<a href="">1.การแสดงผลข้อมูล</a><br>
+					</div>
+					<div style="width:90%;">
+						<iframe src="./page_table.html" width="100%" height="100%" frameBorder="0"></iframe>
+					</div>
+				</div>
+		</div>
+
+		<div id="tab_2">
+				<div class="container-tab">
+					<div style="padding:20px;background:#DDD;width:220px;height:800px;">
+						<a href="">1.สถานการณ์น้ำ</a>
+						<br>
+						<a href="">2.สมดุลน้ำ</a>
+						<br>
+						<a href="">3.ระบบช่วยตัดสินใจ</a>
+					</div>
+					<div>
+						
+					</div>
+				</div>
+		</div>
+
+		<div id="tab_3">
+				<div class="container-tab">
+					<div style="padding:20px;background:#DDD;width:220px;height:800px;">
+						<a href="">1.การปรับแก้การทำงาน</a><br>
+						<a href="">2.การจัดการฐานข้อมูล</a><br>
+						<a href="">3.การกำหนดสิทธิ์ผู้ใช้งาน</a>
+					</div>
+					<div>
+						
+					</div>
+				</div>
+		</div>
+		<a id="control-fab">
+							<input type="image" style="background-color: Transparent; border: none; margin-left:70%;"
+								src='./img/basemap_button_48x48.png' width=38 alt="website" title="website" />
+		</a>
+		<div id="base-fab-menu">
+			<div class="img-base" onclick="change_img(1)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b1.png');"></div>
+				<h3>Open Street Map</h3>
+			</div>
+			<div class="img-base" onclick="change_img(2)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b2.png');"></div>
+				<h3>Open Topo Map</h3>
+			</div>
+			<div class="img-base" onclick="change_img(3)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b3.png');"></div>
+				<h3>Google Map</h3>
+			</div>
+			<div class="img-base" onclick="change_img(4)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b4.png');"></div>
+				<h3>Google Street Map</h3>
+			</div>
+			<div class="img-base" onclick="change_img(5)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b5.png');"></div>
+				<h3>Google Terrain</h3>
+			</div>
+			<div class="img-base" onclick="change_img(6)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b6.png');"></div>
+				<h3>ESRI Topo</h3>
+			</div>
+			<div class="img-base" onclick="change_img(7)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b7.png');"></div>
+				<h3>ESRI Imagery</h3>
+			</div>
+			<div class="img-base" onclick="change_img(8)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b8.png');"></div>
+				<h3>ESRI Light Gray</h3>
+			</div>
+			<div class="img-base" onclick="change_img(9)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b9.png');"></div>
+				<h3>ดาวเทียมไทยโชต</h3>
+			</div>
+			<div class="img-base" onclick="change_img(10)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b10.png');"></div>
+				<h3>Terrain</h3>
+			</div>
+			<div class="img-base" onclick="change_img(11)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b11.png');"></div>
+				<h3>Toner BW</h3>
+			</div>
+			<div class="img-base" onclick="change_img(12)">
+				<div class="bg-inner" style="background-image: url('./img/base_map/b12.png');"></div>
+				<h3>ไม่แสดง</h3>
+			</div>
+		</div>
+		<!-- Sidebar  -->
+		<nav id="sidebar">
+			<div class="scrollbar-inner">
+				<!-- <div class="sidebar-header">
+					<button id="menu">รายการข้อมูล</button>
+				</div> -->
+				<form id="map_filters" name="map_filters">
+					<!-- <a href="javascript:void(0)" id="closebtn" name="closebtn">X</a> -->
+					<a href="javascript:void(0)" id="closebtn" name="closebtn">
+						<i class="fa fa-times" aria-hidden="true" style="top:10px; right:10px; position:absolute;"></i>
+					</a>
+
+					<ul class="list-unstyled components">
+						<!--  ข้อมูลพื้นฐาน -->
+						<li>
+							<div class="panel-component shadow-sm">
+								<div class="panel-heading">
+									<a href="#BasicInfoSubmenu" data-toggle="collapse" aria-expanded="false"
+										class="dropdown-toggle">
+										<!--i class="fas fa-info-circle section-icon"--></i><img src=./img/basicinfo.png
+											style="width:20px; margin-right:5px;">ข้อมูลพื้นฐาน
+									</a>
+								</div>
+								<ul class="collapse list-unstyled" id="BasicInfoSubmenu">
+
+									<!-- ขอบเขตการปกครอง -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Admin_group" name="Admin_group"
+												class="switch-input">
+											<label for="Admin_group" class="switch-label">การปกครอง</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- จังหวัด -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Province" name="Province"
+																class="admin_checkbox layer-PROV_NAM_T" />
+															<label for="Province"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">จังหวัด</div>
+												</li>
+
+												<!-- อำเภอ -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="District" name="District"
+																class="admin_checkbox" />
+															<label for="District"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">อำเภอ</div>
+												</li>
+
+												<!-- ตำบล -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="SubDistrict" name="SubDistrict"
+																class="admin_checkbox" />
+															<label for="SubDistrict"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ตำบล</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+
+									<!-- ทรัพยากรน้ำ -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="River_group" name="River_group"
+												class="switch-input">
+											<label for="River_group" class="switch-label">ทรัพยากรน้ำ</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- ลำน้ำ -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="River" name="River"
+																class="river_checkbox" />
+															<label for="River"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ลำน้ำ</div>
+												</li>
+
+												<!-- แหล่งน้ำ -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Waterbody" name="Waterbody"
+																class="river_checkbox" />
+															<label for="Waterbody"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">แหล่งน้ำ</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+
+									<!-- เส้นทางคมนาคม -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Trans_group" name="Trans_group"
+												class="switch-input">
+											<label for="Trans_group" class="switch-label">เส้นทางคมนาคม</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- ถนน -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Road" name="Road"
+																class="trans_checkbox" />
+															<label for="Road"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ถนน</div>
+												</li>
+
+												<!-- ทางรถไฟ -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Railway" name="Railway"
+																class="trans_checkbox" />
+															<label for="Railway"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ทางรถไฟ</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</li>
+
+						<!-- โครงข่ายระบบแหล่งน้ำ -->
+						<li>
+							<div class="panel-component shadow-sm">
+								<div class="panel-heading">
+									<a href="#WaterNetworkSubmenu" id="WaterNetworkCat" data-toggle="collapse"
+										aria-expanded="false" class="dropdown-toggle">
+										<!--i class="fas fa-water section-icon"></i--> <img src=./img/natural.png
+											style="width:20px; margin-right:5px;">โครงข่ายระบบแหล่งน้ำ
+									</a>
+								</div>
+								<ul class="collapse list-unstyled" id="WaterNetworkSubmenu">
+
+									<!-- แหล่งน้ำต้นทุน -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Watersource_group" name="Watersource_group"
+												class="switch-input">
+											<label for="Watersource_group" class="switch-label">แหล่งน้ำต้นทุน</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- อ่างเก็บน้ำ (หลัก) -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Reservoir_Main" name="Reservoir_Main"
+																class="watersource_checkbox layer-Reservoir_Main" />
+															<label for="Reservoir_Main"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">อ่างเก็บน้ำ (หลัก)</div>
+												</li>
+
+												<!-- อ่างเก็บน้ำ (รอง) -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Reservoir_Reserv" name="Reservoir_Reserv"
+																class="watersource_checkbox layer-Reservoir_Reserv" />
+															<label for="Reservoir_Reserv"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">อ่างเก็บน้ำ (รอง)</div>
+												</li>
+
+											</ul>
+										</div>
+									</li>
+
+									<!-- ท่อส่งน้ำ -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Pipe_group" name="Pipe_group"
+												class="switch-input">
+											<label for="Pipe_group" class="switch-label">ท่อส่งน้ำ</label>
+										</div>
+
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- pipe EW -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Pipe_Main" name="Pipe_Main"
+																class="pipe_checkbox" />
+															<label for="Pipe_Main"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อส่งน้ำ East Water</div>
+												</li>
+
+												<!-- ท่อคลองหลวง -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Pipe_Klongluang"
+																name="Pipe_Klongluang" class="pipe_checkbox" />
+															<label for="Pipe_Klongluang"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อคลองหลวง</div>
+												</li>
+
+												<!-- ท่อคลองพระองค์ไชยานุชิต -->
+												<!-- <li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="pipe_klongphraong"
+																name="pipe_klongphraong" class="pipe_checkbox" />
+															<label for="pipe_klongphraong"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อคลองพระองค์ไชยานุชิต
+													</div>
+												</li> -->
+
+												<!-- ท่อคลองสะพาน-อ่างประแสร์ -->
+												<!-- <li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="pipe_klongsaphan-prasae"
+																name="pipe_klongsaphan-prasae" class="pipe_checkbox" />
+															<label for="pipe_klongsaphan-prasae"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อคลองสะพาน-อ่างประแสร์</div>
+												</li> -->
+
+												<!-- ท่อประแสร์-คลองใหญ่ -->
+												<!-- <li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="pipe_prasae-klongyai"
+																name="pipe_prasae-klongyai" class="pipe_checkbox" />
+															<label for="pipe_prasae-klongyai"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อประแสร์-คลองใหญ่</div>
+												</li> -->
+
+												<!-- ท่อส่งน้ำ คลองวังโตนด -->
+												<!-- <li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="pipe_wangtanod"
+																name="pipe_wangtanod" class="pipe_checkbox" />
+															<label for="pipe_wangtanod"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อคลองวังโตนด</div>
+												</li> -->												
+											</ul>
+										</div>
+									</li>
+
+									<!-- สถานีสูบน้ำ -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Pump_group" name="Pump_group"
+												class="switch-input">
+											<label for="Pump_group" class="switch-label">สถานีสูบน้ำ</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- สถานีสูบน้ำ (หลัก) -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Pump_Main" name="Pump_Main"
+																class="pump_checkbox" />
+															<label for="Pump_Main"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">สถานีสูบน้ำ (หลัก)</div>
+												</li>
+
+												<!-- สถานีสูบน้ำ (รอง) -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Pump_Reserv" name="Pump_Reserv"
+																class="pump_checkbox" />
+															<label for="Pump_Reserv"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">สถานีสูบน้ำ (รอง)</div>
+												</li>
+
+											</ul>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</li>
+
+						<!-- ข้อมูลสนับสนุน -->
+						<li>
+							<div class="panel-component shadow-sm">
+								<div class="panel-heading">
+									<a href="#SupportSubmenu" id="Support-filter" data-toggle="collapse"
+										aria-expanded="false" class="dropdown-toggle">
+										<img src=./img/support.png
+											style="width:20px; margin-right:5px;">ข้อมูลสนับสนุน</a>
+								</div>
+								<ul class="collapse list-unstyled" id="SupportSubmenu">
+
+									<!-- ลูกค้า -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Customer_group" name="Customer_group"
+												class="switch-input">
+											<label for="Customer_group" class="switch-label">ลูกค้า</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- ตำแหน่งลูกค้า -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Customer"
+																name="Customer" class="customer_checkbox"
+																marker-id="Customer" />
+															<label for="Customer"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ตำแหน่งลูกค้า</div>
+												</li>
+
+											</ul>
+										</div>
+									</li>
+
+									<!-- สถานีตรวจวัด -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Station_group" name="Station_group"
+												class="switch-input">
+											<label for="Station_group" class="switch-label">สถานีตรวจวัด</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- สถานีตรวจอากาศ -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Weather_Station"
+																name="Weather_Station" class="station_checkbox"
+																marker-id="Weather_Station" />
+															<label for="Weather_Station"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">สถานีตรวจอากาศ
+													</div>
+												</li>
+
+												<!-- สถานีวัดน้ำฝน -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Rain_Station" name="Rain_Station"
+																class="station_checkbox" marker-id="Rain_Station" />
+															<label for="Rain_Station"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">สถานีวัดน้ำฝน
+													</div>
+												</li>
+
+												<!-- สถานีวัดน้ำท่า -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Level_Station"
+																name="Level_Station" class="station_checkbox"
+																marker-id="Level_Station" />
+															<label for="Level_Station"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">สถานีวัดน้ำท่า</div>
+												</li>
+
+												<!-- เส้นชั้นน้ำฝน -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Isohyet" name="Isohyet"
+																class="station_checkbox" />
+															<label for="Isohyet"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">เส้นชั้นน้ำฝน</div>
+												</li>
+
+											</ul>
+										</div>
+									</li>
+
+									<!-- ระบบประปา -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="Watersupply_group" name="Watersupply_group"
+												class="switch-input">
+											<label for="Watersupply_group" class="switch-label">ระบบประปา</label>
+										</div>
+										<div class="filter_info">
+											<ul class="sub-filter list-unstyled">
+
+												<!-- สถานีสูบน้ำ กปภ. -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Pump_PWA"
+																name="Pump_PWA" class="watersupply_checkbox"
+																marker-id="Pump_PWA" />
+															<label for="Pump_PWA"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">สถานีสูบน้ำ กปภ.</div>
+												</li>
+
+												<!-- ท่อน้ำประปา กภป. -->
+												<li class="row">
+													<div class="col-lg-2" style="padding-top:4px;">
+														<div class="round">
+															<input type="checkbox" id="Pipe_PWA"
+																name="Pipe_PWA" class="waterwork_checkbox" />
+															<label for="Pipe_PWA"></label>
+														</div>
+													</div>
+													<div class="sub-filter-text col-lg-10">ท่อน้ำประปา กปภ.</div>
+												</li>
+
+											</ul>
+										</div>
+									</li>
+
+
+									<!-- ฝนคาดการณ์ -->
+									<li>
+										<div class="material-switch">
+											<input type="checkbox" id="RainPrediction" name="RainPrediction"
+												class="switch-input" />
+											<!-- class="switch-input rainprediction-switch" /> -->
+											<label for="RainPrediction" class="switch-label">ฝนคาดการณ์</label>
+										</div>
+										<div class="filter_info">
+											<div class="row">
+												<div class="col-lg-2"></div>
+												<div class="col-lg-10">
+													<a href="./img/legend/legend-Rain_Prediction-large2.png"
+														data-lightbox="legend-rainprediction"
+														data-title="สัญลักษณ์ Rainfall Prediction"><img
+															src="./img/legend/legend-Rain_Prediction1.png" width="200"
+															style="margin-left:-30px;" /></a>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-lg-2"></div>
+												<div class="col-lg-10 text-muted" style="margin-left:-30px;">
+													<a href="http://realearth.ssec.wisc.edu/products/NESDIS-GHE-HourlyRainfall/"
+														target="_blank">แหล่งที่มา </a>
+												</div>
+											</div>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</li>
+
+
+
+					</ul>
+					<!--ul class="list-unstyled components"-->
+				</form>
+
+				<br>
+			</div>
+			<!-- div class="scrollbar-inner" -->
+		</nav>
+		<div class="opacity-controls">
+			<input type="range" class="opacity-change" id="pipe_EW_ed" min="0" max="2" value="2" step="1"
+				onchange="opacity_pipe_EW()">
+			<input type="range" class="opacity-change" id="Floodway_ed" min="0" max="2" value="2" step="1"
+				onchange="opacity_Floodway()">
+			<input type="range" class="opacity-change" id="FloodArea_ed" min="0" max="2" value="2" step="1"
+				onchange="opacity_FloodArea()">
+			<input type="range" class="opacity-change" id="pipe_wangtanod_ed" min="0" max="2" value="2" step="1"
+				onchange="opacity_pipe_wangtanod()">
+		</div>
+		<!-- content -->
+		<div id="content">
+			<!-- Page Content  -->
+			<!-- tooltip style -->
+			<style>
+				div.tooltip_menu span {
+					display: none;
+					position: absolute;
+					width: 120px;
+					text-align: center;
+					padding: 5px 0;
+					border-radius: 6px;
+					background: rgba(0, 0, 0, 0.267);
+					color: #fff;
+					position: absolute;
+					z-index: 1;
+				}
+
+				div.tooltip_menu:hover span {
+					display: block;
+				}
+			</style>
+
+			<div id="filter_icon" style=" padding:4px; position:absolute; left:10px; z-index:99;
+									/* top:64px; border-radius:1px; border: 1px solid #42ACA8; */">
+				<!-- <i class="fa fa-align-justify fa-1.5x"></i> -->
+				<div class="tooltip_menu">
+					<img src=./img/OpenLayers_logo.svg style="width:42px;">
+					<span class="tooltiptext">รายการข้อมูล</span>
+				</div>
+			</div>
+
+			<!-- tooltip -->
+			<div id="tooltip" class="ol-popup">
+				<div id="tooltip-content"></div>
+			</div>
+
+			<!-- Hover -->
+			<div id="hover-Cross_Section"></div>
+			<div id="hover-MapControl"></div>
+			<div id="hover-Trans_Station"></div>
+			<div id="hover-River_Distance"></div>
+			<div id="hover-Reservoir"></div>
+			<div id="hover-Irr_Project"></div>
+			<div id="hover-Irr_Pump"></div>
+			<div id="hover-Weather_Station"></div>
+			<div id="hover-Rain_Station"></div>
+			<div id="hover-Level_Station"></div>
+			<div id="hover-Bridge"></div>
+			<div id="hover-Diversion_Dam"></div>
+			<div id="hover-Regulator"></div>
+			<div id="hover-Weir"></div>
+			<div id="hover-Levee"></div>
+			<div id="hover-Polder"></div>
+			<div id="hover-Culvert"></div>
+			<div id="hover-Factory"></div>
+			<div id="hover-Waterdepth"></div>
+			<div id="hover-Floodmark"></div>
+			<div id="hover-Wetland"></div>
+
+			<!-- popup -->
+			<!-- <div id="popup" class="ol-popup">
+				<a href="#" id="popup-closer" class="ol-popup-closer"></a>
+				<div id="popup-content"></div>
+			</div> -->
+
+			<!-- province -->
+			<div id="popup-Province" class="ol-popup">
+				<a href="#" id="popup-closer-Province" class="ol-popup-closer"></a>
+				<div id="popup-content-Province"></div>
+			</div>
+
+			<!-- village -->
+			<div id="popup-Village" class="ol-popup">
+				<a href="#" id="popup-closer-Village" class="ol-popup-closer"></a>
+				<div id="popup-content-Village"></div>
+			</div>
+
+			<!-- Trans_Station -->
+			<div id="popup-Trans_Station" class="ol-popup">
+				<a href="#" id="popup-closer-Trans_Station" class="ol-popup-closer"></a>
+				<div id="popup-content-Trans_Station"></div>
+			</div>
+
+			<!-- Wetland -->
+			<div id="popup-Wetland" class="ol-popup">
+				<a href="#" id="popup-closer-Wetland" class="ol-popup-closer"></a>
+				<div id="popup-content-Wetland"></div>
+			</div>
+
+			<!-- River_Distance -->
+			<div id="popup-River_Distance" class="ol-popup">
+				<a href="#" id="popup-closer-River_Distance" class="ol-popup-closer"></a>
+				<div id="popup-content-River_Distance"></div>
+			</div>
+
+			<!-- Reservoir -->
+			<div id="popup-Reservoir" class="ol-popup">
+				<a href="#" id="popup-closer-Reservoir" class="ol-popup-closer"></a>
+				<div id="popup-content-Reservoir"></div>
+			</div>
+
+			<!-- Irr_Project -->
+			<div id="popup-Irr_Project" class="ol-popup">
+				<a href="#" id="popup-closer-Irr_Project" class="ol-popup-closer"></a>
+				<div id="popup-content-Irr_Project"></div>
+			</div>
+
+			<!-- Irr_Pump -->
+			<div id="popup-Irr_Pump" class="ol-popup">
+				<a href="#" id="popup-closer-Irr_Pump" class="ol-popup-closer"></a>
+				<div id="popup-content-Irr_Pump"></div>
+			</div>
+
+			<!-- Well -->
+			<div id="popup-Well" class="ol-popup">
+				<a href="#" id="popup-closer-Well" class="ol-popup-closer"></a>
+				<div id="popup-content-Well"></div>
+			</div>
+
+			<!-- Weather_Station -->
+			<div id="popup-Weather_Station" class="ol-popup">
+				<a href="#" id="popup-closer-Weather_Station" class="ol-popup-closer"></a>
+				<div id="popup-content-Weather_Station"></div>
+			</div>
+
+			<!-- Rain_Station -->
+			<div id="popup-Rain_Station" class="ol-popup">
+				<a href="#" id="popup-closer-Rain_Station" class="ol-popup-closer"></a>
+				<div id="popup-content-Rain_Station"></div>
+			</div>
+
+			<!-- Level_Station -->
+			<div id="popup-Level_Station" class="ol-popup">
+				<a href="#" id="popup-closer-Level_Station" class="ol-popup-closer"></a>
+				<div id="popup-content-Level_Station"></div>
+			</div>
+
+			<!-- Obstruction -->
+			<!-- Bridge -->
+			<div id="popup-Bridge" class="ol-popup">
+				<a href="#" id="popup-closer-Bridge" class="ol-popup-closer"></a>
+				<div id="popup-content-Bridge"></div>
+			</div>
+			<!-- Diversion_Dam -->
+			<div id="popup-Diversion_Dam" class="ol-popup">
+				<a href="#" id="popup-closer-Diversion_Dam" class="ol-popup-closer"></a>
+				<div id="popup-content-Diversion_Dam"></div>
+			</div>
+			<!-- Weir -->
+			<div id="popup-Weir" class="ol-popup">
+				<a href="#" id="popup-closer-Weir" class="ol-popup-closer"></a>
+				<div id="popup-content-Weir"></div>
+			</div>
+			<!-- Regulator -->
+			<div id="popup-Regulator" class="ol-popup">
+				<a href="#" id="popup-closer-Regulator" class="ol-popup-closer"></a>
+				<div id="popup-content-Regulator"></div>
+			</div>
+			<!-- Levee -->
+			<div id="popup-Levee" class="ol-popup">
+				<a href="#" id="popup-closer-Levee" class="ol-popup-closer"></a>
+				<div id="popup-content-Levee"></div>
+			</div>
+			<!-- Polder -->
+			<div id="popup-Polder" class="ol-popup">
+				<a href="#" id="popup-closer-Polder" class="ol-popup-closer"></a>
+				<div id="popup-content-Polder"></div>
+			</div>
+			<!-- Culvert -->
+			<div id="popup-Culvert" class="ol-popup">
+				<a href="#" id="popup-closer-Culvert" class="ol-popup-closer"></a>
+				<div id="popup-content-Culvert"></div>
+			</div>
+
+			<!-- Cross_Section -->
+			<div id="popup-Cross_Section" class="ol-popup">
+				<a href="#" id="popup-closer-Cross_Section" class="ol-popup-closer"></a>
+				<div id="popup-content-Cross_Section"></div>
+			</div>
+
+			<!-- MapControl -->
+			<div id="popup-MapControl" class="ol-popup">
+				<a href="#" id="popup-closer-MapControl" class="ol-popup-closer"></a>
+				<div id="popup-content-MapControl"></div>
+			</div>
+			<!-- Waterdepth -->
+			<div id="popup-Waterdepth" class="ol-popup">
+				<a href="#" id="popup-closer-Waterdepth" class="ol-popup-closer"></a>
+				<div id="popup-content-Waterdepth"></div>
+			</div>
+
+			<!-- Floodmark -->
+			<div id="popup-Floodmark" class="ol-popup">
+				<a href="#" id="popup-closer-Floodmark" class="ol-popup-closer"></a>
+				<div id="popup-content-Floodmark"></div>
+			</div>
+
+			<!-- Factory -->
+			<div id="popup-Factory" class="ol-popup">
+				<a href="#" id="popup-closer-Factory" class="ol-popup-closer"></a>
+				<div id="popup-content-Factory"></div>
+			</div>
+
+			<div id="mouse-position" class="text-right"></div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span
+							aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>Modal 1</p>
+
+					<a href="#modal-2" data-toggle="modal" data-dismiss="modal">Next ></a>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- Download KMZ -->
+	<div id="myModal1" class="modal">
+		<div class="modal-content" style="width: 60rem;">
+			<span class="close">&times;</span>
+			<div style="font:normal 18px Tahoma;"><img src='./img/google_earth_icon52.png' width=28 /> Download KMZ
+				files</div>
+			<table class="modal-body">
+				<tr class="header">
+					<th style="width:5vw;">ลำดับ</th>
+					<th style="width:20vw;">กลุ่มข้อมูล</th>
+					<th style="width:65vw;">ชั้นข้อมูล</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td><a href="./download/kmz/ลุ่มน้ำ.kmz">ลุ่มน้ำ</a></td>
+					<td>ลุ่มน้ำประธาน, ลุ่มน้ำ, ลุ่มน้ำสาขา</td>
+				</tr>
+				<tr class="even">
+					<td>2</td>
+					<td><a href="./download/kmz/ลำน้ำ.kmz">ลำน้ำ</a></td>
+					<td>ลำน้ำ, กม.ของลำน้ำ, แหล่งน้ำ</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td><a href="./download/kmz/การปกครอง.kmz">การปกครอง</a></td>
+					<td>ขอบเขตการปกครองระดับจังวัด อำเภอ ตำบล เทศบาล</td>
+				</tr>
+				<tr class="even">
+					<td>4</td>
+					<td><a href="./download/kmz/เส้นทางคมนาคม.kmz">เส้นทางคมนาคม</a></td>
+					<td>ถนน, ทางรถไฟ, สถานีคมนาคม</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td><a href="./download/kmz/ป่าไม้.kmz">ป่าไม้</a></td>
+					<td>ป่าไม้, ป่าบุ่ง ป่าทาม, อุทานแห่งชาติ, เขตรักษาพันธุ์สัตว์ป่า, พื้นที่ชุ่มน้ำ</td>
+				</tr>
+				<tr class="even">
+					<td>6</td>
+					<td><a href="./download/kmz/พื้นที่น้ำท่วมตามคาบอุบัติ.kmz">พื้นที่น้ำท่วมตามคาบอุบัติ</a></td>
+					<td>พื้นที่น้ำท่วมตามคาบอุบัติ 2-100 ปี จากผลการศึกษา</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td><a href="./download/kmz/พื้นที่เสี่ยงภัย.kmz">พื้นที่เสี่ยงภัย</a></td>
+					<td>พื้นที่เสี่ยงภัยน้ำหลาก, พื้นที่เสียงภัยดินถล่มและน้ำป่าไหลหลาก, พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและการเกษตร
+					</td>
+				</tr>
+				<tr class="even">
+					<td>8</td>
+					<td><a href="./download/kmz/ผังน้ำ.kmz">ผังน้ำ</a></td>
+					<td>พื้นที่ทางน้ำหลากบริเวณริมน้ำ (ลน.), พื้นที่ทางน้ำหลากเพื่อสงวนการรักษาการระบายน้ำ (ลร.), พื้นที่ลุ่มต่ำ (ต.)
+					</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td><a href="./download/kmz/สถานีตรวจวัด.kmz">สถานีตรวจวัด</a></td>
+					<td>สถานีตรวจอากาศ, สถานีวัดน้ำฝน, สถานีวัดน้ำท่า, เส้นชั้นน้ำฝน</td>
+				</tr>
+				<tr class="even">
+					<td>10</td>
+					<td><a href="./download/kmz/โครงการชลประทาน.kmz">โครงการชลประทาน</a></td>
+					<td>ตำแหน่งโครงการชลประทาน, พื้นที่ชลประทาน, สถานีสูบน้ำด้วยไฟฟ้า, บ่อบาดาล</td>
+				</tr>
+				<tr>
+					<td>11</td>
+					<td><a href="./download/kmz/สิ่งกีดขวางทางน้ำ.kmz">สิ่งกีดขวางทางน้ำ</a></td>
+					<td>สะพาน, ท่อลอด, ประตูระบายน้ำ, ฝาย, เขื่อนทดน้ำ, คันป้องกันน้ำท่วม</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td><a href="./download/kmz/ข้อมูลสนับสนุน.kmz">ข้อมูลสนับสนุน</a></td>
+					<td>พื้นที่เป้าหมายการแก้ไขปัญหา (Area Based), อุตสาหกรรม, ผลสำรวจ</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- ดาวน์โหลดแผนที่-1 -->
+	<div id="myModal2" class="modal">
+		<div class="modal-content" style="padding-top: 0.625rem; width: 50rem !important;">
+			<span class="close">&times;</span>
+			<div style="font:normal 18px Tahoma;"><img src='./img/map.png' width=28 /> ดาวน์โหลดแผนที่</div>
+			<hr style="border-width:1px; border-style:groove" />
+			<div>
+				<table class="modal-body">
+
+					<!-- 1_ขอบเขตลุ่มน้ำและระบบทางน้ำ -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img"><a
+								href="./download/map/05-01 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ.ZIP">แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td class="modal-img">
+							<a href="./download/map/05-01 1-3 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ_A0.jpg"
+								data-lightbox="img-set-1" data-title="ขอบเขตลุ่มน้ำและระบบทางน้ำ_1">
+								<img src="./download/map/05-01 1-3 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ_A0.jpg"
+									width="180" />
+							</a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-01 2-3 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ_A0.jpg"
+								data-lightbox="img-set-1" data-title="ขอบเขตลุ่มน้ำและระบบทางน้ำ_1">
+								<img src="./download/map/05-01 2-3 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ_A0.jpg"
+									width="180" />
+							</a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-01 3-3 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ_A0.jpg"
+								data-lightbox="img-set-1" data-title="ขอบเขตลุ่มน้ำและระบบทางน้ำ_1">
+								<img src="./download/map/05-01 2-3 แผนที่แสดงขอบเขตลุ่มน้ำมูลและระบบทางน้ำ_A0.jpg"
+									width="180" />
+							</a>
+						</td>
+					</tr>
+
+					<!-- 2_ผังน้ำ -->
+					<tr style="text-align:center; height: 40px; ">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-02 แผนผังแสดงผังน้ำ.ZIP">แผนผังแสดงผังน้ำ <b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td class="modal-img">
+							<a href="./download/map/05-02 1-3 แผนผังแสดงผังน้ำ_A0.jpg" data-lightbox="img-set-2"
+								data-title="ผังน้ำ_50000_1">
+								<img src="./download/map/05-02 1-3 แผนผังแสดงผังน้ำ_A0.jpg" width="180" />
+							</a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-02 2-3 แผนผังแสดงผังน้ำ_A0.jpg" data-lightbox="img-set-2"
+								data-title="ผังน้ำ_50000_2">
+								<img src="./download/map/05-02 2-3 แผนผังแสดงผังน้ำ_A0.jpg" width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-02 3-3 แผนผังแสดงผังน้ำ_A0.jpg" data-lightbox="img-set-2"
+								data-title="ผังน้ำ_50000_3">
+								<img src="./download/map/05-02 3-3 แผนผังแสดงผังน้ำ_A0.jpg" width="180" /></a>
+						</td>
+					</tr>
+
+					<!-- 3_พื้นที่ป่าและพื้นที่ชุ่มน้ำ -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-03 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ.ZIP">แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td class="modal-img">
+							<a href="./download/map/05-03 1-3 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ_A0.jpg"
+								data-lightbox="img-set-3" data-title="พื้นที่ป่าและพื้นที่ชุ่มน้ำ_1">
+								<img src="./download/map/05-03 1-3 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ_A0.jpg"
+									width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-03 2-3 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ_A0.jpg"
+								data-lightbox="img-set-3" data-title="พื้นที่ป่าและพื้นที่ชุ่มน้ำ_2">
+								<img src="./download/map/05-03 2-3 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ_A0.jpg"
+									width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-03 3-3 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ_A0.jpg"
+								data-lightbox="img-set-3" data-title="พื้นที่ป่าและพื้นที่ชุ่มน้ำ_3">
+								<img src="./download/map/05-03 3-3 แผนที่แสดงพื้นที่ป่าและพื้นที่ชุ่มน้ำ_A0.jpg"
+									width="180" /></a>
+						</td>
+					</tr>
+
+					<!-- 4_ความจุลำน้ำและพื้นที่เสี่ยงภัยน้ำท่วม -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-04 แผนที่แสดงความจุลำน้ำและพื้นที่เสี่ยงภัยน้ำท่วม_A3.ZIP">แผนที่แสดงความจุลำน้ำและพื้นที่เลี่ยงภัยน้ำท่วม
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-04 แผนที่แสดงความจุลำน้ำและพื้นที่เสี่ยงภัยน้ำท่วม_A3.jpg"
+								data-lightbox="img-set-4" data-title="ความจุลำน้ำและพื้นที่เสี่ยงภัยน้ำท่วม">
+								<img src="./download/map/05-04 แผนที่แสดงความจุลำน้ำและพื้นที่เสี่ยงภัยน้ำท่วม_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 5_แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 2 ปี -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-05 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 2 ปี_A3.ZIP">แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ
+								2 ปี
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-05 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 2 ปี_A3.jpg"
+								data-lightbox="img-set-5" data-title="แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 2 ปี">
+								<img src="./download/map/05-05 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 2 ปี_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 6_แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 5 ปี -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-06 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 5 ปี_A3.ZIP">แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ
+								5 ปี
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-06 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 5 ปี_A3.jpg"
+								data-lightbox="img-set-5" data-title="แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 5 ปี">
+								<img src="./download/map/05-06 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 5 ปี_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 7_แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 10 ปี -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-07 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 10 ปี_A3.ZIP">แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ
+								10 ปี
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-07 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 10 ปี_A3.jpg"
+								data-lightbox="img-set-5" data-title="แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 10 ปี">
+								<img src="./download/map/05-07 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 10 ปี_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 8_แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 25 ปี -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-08 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 25 ปี_A3.ZIP">แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ
+								25 ปี
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-08 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 25 ปี_A3.jpg"
+								data-lightbox="img-set-5" data-title="แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 25 ปี">
+								<img src="./download/map/05-08 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 25 ปี_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 9_แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 50 ปี -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-09 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 50 ปี_A3.ZIP">แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ
+								50 ปี
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-09 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 50 ปี_A3.jpg"
+								data-lightbox="img-set-5" data-title="แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 50 ปี">
+								<img src="./download/map/05-09 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 50 ปี_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 10_แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 100 ปี -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-10 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 100 ปี_A3.ZIP">แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ
+								100 ปี
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-img">
+							<a href="./download/map/05-10 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 100 ปี_A3.jpg"
+								data-lightbox="img-set-5" data-title="แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 100 ปี">
+								<img src="./download/map/05-10 แผนที่แสดงพื้นที่น้ำท่วมที่คาบอุบัติ 100 ปี_A3.jpg"
+									width="540" /></a>
+						</td>
+					</tr>
+
+					<!-- 11_ผังระบบระบายน้ำ -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-11-ผังระบบระบายน้ำ.ZIP">ผังระบบระบายน้ำ
+								<b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td class="modal-img">
+							<a href="./download/map/11-1-ผังระบบระบายน้ำ.jpg" data-lightbox="img-set-11"
+								data-title="ผังระบบระบายน้ำ_1">
+								<img src="./download/map/11-1-ผังระบบระบายน้ำ.jpg" width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/11-2-ผังระบบระบายน้ำ.jpg" data-lightbox="img-set-11"
+								data-title="ผังระบบระบายน้ำ_2">
+								<img src="./download/map/11-2-ผังระบบระบายน้ำ.jpg" width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/11-3-ผังระบบระบายน้ำ.jpg" data-lightbox="img-set-11"
+								data-title="ผังระบบระบายน้ำ_3">
+								<img src="./download/map/11-3-ผังระบบระบายน้ำ.jpg" width="180" /></a>
+						</td>
+					</tr>
+
+					<!-- 12_แผนที่แสดงข้อมูลพื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมในช่วงน้ำแล้ง (พ.ย-พ.ค) -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-12 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมในช่วงน้ำแล้ง(พ.ย-พ.ค).ZIP">แผนที่แสดงข้อมูลพื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมในช่วงน้ำแล้ง(พ.ย-พ.ค) <b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td class="modal-img">
+							<a href="./download/map/05-12 1-3 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมช่วงน้ำแล้ง(พ.ย - พ.ค).jpg"
+								data-lightbox="img-set-12" data-title="พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค_1">
+								<img src="./download/map/05-12 1-3 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมช่วงน้ำแล้ง(พ.ย - พ.ค).jpg"
+									width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-12 2-3 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมช่วงน้ำแล้ง(พ.ย - พ.ค).jpg"
+								data-lightbox="img-set-12" data-title="พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค_2">
+								<img src="./download/map/05-12 2-3 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมช่วงน้ำแล้ง(พ.ย - พ.ค).jpg"
+									width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-12 3-3 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมช่วงน้ำแล้ง(พ.ย - พ.ค).jpg"
+								data-lightbox="img-set-12" data-title="พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค_3">
+								<img src="./download/map/05-12 3-3 พื้นที่เสี่ยงขาดแคลนน้ำอุปโภค-บริโภคและอุตสาหกรรมช่วงน้ำแล้ง(พ.ย - พ.ค).jpg"
+									width="180" /></a>
+						</td>
+					</tr>
+
+					<!-- 13_แผนที่แสดงข้อมูลพื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง (พ.ย.-พ.ค) -->
+					<tr style="text-align: center;">
+						<td colspan="3" class="modal-dl-img" style="height:50px; vertical-align: bottom;"><a
+								href="./download/map/05-13 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).ZIP">แผนที่แสดงข้อมูลพื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง
+								(พ.ย.-พ.ค) <b>⤓</b>
+							</a></td>
+					</tr>
+					<tr style="text-align: center;">
+						<td class="modal-img">
+							<a href="./download/map/05-13 1-3 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).jpg"
+								data-lightbox="img-set-13" data-title="พื้นที่เสี่ยงขาดแคลนน้ำเกษตร_1">
+								<img src="./download/map/05-13 1-3 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).jpg"
+									width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-13 2-3 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).jpg"
+								data-lightbox="img-set-13" data-title="พื้นที่เสี่ยงขาดแคลนน้ำเกษตร_2">
+								<img src="./download/map/05-13 2-3 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).jpg"
+									width="180" /></a>
+						</td>
+						<td class="modal-img">
+							<a href="./download/map/05-13 3-3 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).jpg"
+								data-lightbox="img-set-13" data-title="พื้นที่เสี่ยงขาดแคลนน้ำเกษตร_3">
+								<img src="./download/map/05-13 3-3 พื้นที่เสี่ยงขาดแคลนน้ำเพื่อการเกษตรนอกเขตชลประทานในช่วงน้ำแล้ง(พ.ย.-พ.ค).jpg"
+									width="180" /></a>
+						</td>
+					</tr>
+					<tr style="border-bottom: 1px solid rgba(219, 215, 215, 0.5);"></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="dialog-layer">
+		<div class="header-layer">
+			<h4>ตั้งค่าเพิ่มเติม <i class="fa fa-gear"></i></h4>
+		</div>
+		<div>
+			<div class="group-property">
+				
+			
+			</div>
+			<div id="container-layer">
+				<div class="none-layer element-layer"><p>ไม่มีเลเยอร์</p></div>
+			</div>
+		</div>
+	</div>
+	<!-- Javascripr -->
+	<script type="text/javascript" src="./js/fontawesome/fa-filter.js"></script>
+	<script type="text/javascript" src="https://d3js.org/topojson.v2.min.js"></script>
+	<!-- <script type="text/javascript" src="https://mapbox.github.io/geojson-vt/geojson-vt-dev.js"></script> -->
+	<script type="text/javascript" src="https://unpkg.com/geojson-vt@3.0.0/geojson-vt-dev.js"></script>
+	<!-- <script type="text/javascript" src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script> -->
+	<script type="text/javascript"
+		src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/utm-latlng@1.0.5/UTMLatLngFront.js"></script>
+	<script type="text/javascript" src="./js/ol-layerswitcher.js"></script>
+	<script type="text/javascript" src="./js/modal.js"></script>
+	<script type="text/javascript" src="./js/lightbox.js"></script>
+	<script type="text/javascript" src="./js/map_script.js"></script>
+	<script type="text/javascript" src="./js/map_layers.js"></script>
+	<script type="text/javascript" src="./js/map_controls.js"></script>
+	<script type="text/javascript" src="./js/map_layercontrols.js"></script>
+</body>
+
+</html>

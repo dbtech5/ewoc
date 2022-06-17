@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ajax/libs/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="./css/data.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="group-element">
+            <div style="width: 100%;">
+                <div style="width: 80%;padding:0;">
+                    <p style="width: 100%;font-size:12px;margin-top:15px;margin-bottom:0px;">อ่างเก็บน้ำ</p>
+                    <select onchange="load_csv_totable()" id="val_data" style="width: 150px;margin-left: 0px;">
+                        <option>อ่างเก็บน้ำคลองใหญ่</option>
+                        <option>อ่างเก็บน้ำคลองระบม</option>
+                        <option>อ่างเก็บน้ำคลองระโอก</option>
+                        <option>อ่างเก็บน้ำคลองสียัด</option>
+                        <option>อ่างเก็บน้ำคลองหลวงรัชชโลทร</option>
+                        <option>อ่างเก็บน้ำคลองใหญ่</option>
+                        <option>อ่างเก็บน้ำดอกกราย</option>
+                        <option>อ่างเก็บน้ำบางพระ</option>
+                        <option>อ่างเก็บน้ำบ้านบึง</option>
+                        <option>อ่างเก็บน้ำประแสร์</option>
+                        <option>อ่างเก็บน้ำมาบประชัน</option>
+                        <option>อ่างเก็บน้ำมาบฟักทอง 1</option>
+                        <option>อ่างเก็บน้ำมาบฟักทอง 2</option>
+                        <option>อ่างเก็บน้ำลาดกระทิง</option>
+                        <option>อ่างเก็บน้ำลุ่มน้ำโจน 16</option>
+                        <option>อ่างเก็บน้ำลุ่มน้ำโจน 2</option>
+                        <option>อ่างเก็บน้ำหนองกลางดง</option>
+                        <option>อ่างเก็บน้ำหนองค้อ</option>
+                        <option>อ่างเก็บน้ำหนองปลาไหล</option>
+                        <option>อ่างเก็บน้ำห้วยขุนจิต</option>
+                        <option>อ่างเก็บน้ำห้วยชากนอก</option>
+                        <option>อ่างเก็บน้ำห้วยตู้1</option>
+                        <option>อ่างเก็บน้ำห้วยตู้2</option>
+                        <option>อ่างเก็บน้ำห้วยสะพาน</option>
+                    </select>
+                    <p style="width: 100%;font-size:12px;margin-top:15px;margin-bottom:0px;text-align: right;">ปี พ.ศ</p>
+                    <select id="year_select">
+                        <option value="0">2559</option>
+                        <option value="1">2560</option>
+                        <option value="2">2561</option>
+                        <option value="3">2562</option>
+                    </select>
+                    <button onclick="makeTable()" id="btn_feed"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <br>
+        <h4>รายงานปริมาณน้ำ</h4>
+        <hr>
+        <div id="group_make_table">
+            <table></table>
+        </div>
+    </div>
+    <br>
+        <h4>กราฟแสดงผล</h4>
+    <hr>
+    
+    <div>
+        <div style="display: flex;margin-left: 10%;">
+            <p style="font-size: 12px;margin-top: 15px;">เลือกแสดงปี</p>
+            <select id="range_start" onchange="chnage_plot()" style="margin-left:20px;height: 30px;">
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <canvas id="myChart" style="max-width:80%;margin-left: 10%;"></canvas>
+        </div>
+        <br>
+        <div>
+            <canvas id="myChart2" style="max-width:80%;margin-left: 10%;"></canvas>
+        </div>
+            
+        <div>
+            <canvas id="myChart3" style="max-width:80%;margin-left: 10%;"></canvas>
+        </div>
+        <div style="height: 250px;display:block;width:100%;">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="./js/process-data.js"></script>
+</body>
+</html>

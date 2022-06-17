@@ -1,0 +1,132 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css?family=Prompt');
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d3cfcf;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+body {
+    /* font-family: 'Prompt', sans-serif; */
+    font-family: 'Sriracha', sans-serif;
+    background: #fafafa;
+}
+.group-element{
+    display: flex;
+    margin-top: 30px;
+    width: 50%;
+    margin-left: 10%;
+    margin-right: 35%;
+    border-radius: 25px;
+    background-color: #FFFFFF00;
+    box-shadow: 0px 0px 15px 0px #DDDDDD00;
+}
+
+.group-element > div{
+    width: 60%;
+}
+.group-element > div > select,input,button{
+    font-size: 12px;
+}
+
+.group-element > div > div >  select{
+    font-size: 12px;
+    border: 0px solid #DDD;
+    background-color: #DDDDDD40;
+    padding: 5px 8px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 25px;;
+    outline: none;
+}
+.group-element > div > div > input{
+    user-select: none;
+    outline: none;
+    border: 0px solid #DDD;
+}
+
+.group-element > div > div > button{
+    background-color: transparent;
+    border: 0px solid transparent;
+    outline: none;
+    margin-top: 5px;;
+    font-size: 10pt;
+    display: inline-block;
+}
+.group-element > div > div{
+    width: 100%;
+    margin-top: 0px;
+    display: flex;
+    margin-bottom: 10px;
+}
+.group-element > div > div:nth-child(2){
+    width: 50%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10px;
+    display: flex;
+    margin-bottom: 10px;
+}
+.group-element > div > div > h3{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 14px;
+}
+#group_make_table{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 300px;
+    overflow-y: scroll;
+
+}
+
+#group_make_table > table{
+    width: 100%;
+}
+#group_make_table > table,th,td{
+    padding-left: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#group_make_table> table > tbody > tr > th{
+    background-color: #d3cfcf80;
+    padding-left: 20px;
+    width: 15%;
+    text-align: center;
+    font-size: 12px;
+}
+#group_make_table> table > tbody > tr > th:nth-child(1){
+    width: 10%;
+    text-align: center;
+    font-size: 12px;
+}
+#group_make_table> table > tbody > tr > td{
+    font-size: 12px;
+
+}
+h4{
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10%;
+}
+
+select{
+    font-size: 12px;
+    border: 0px solid #DDD;
+    background-color: #DDDDDD40;
+    padding: 5px 8px;
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 25px;;
+    outline: none;
+}
